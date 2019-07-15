@@ -5,7 +5,7 @@ import itertools
 import operator
 
 
-c_img = cv2.imread('le.png',0)
+c_img = cv2.imread('cam.png',0)
 print("c_size bef",c_img.size)
 c_img = cv2.resize(c_img,(256,256))
 

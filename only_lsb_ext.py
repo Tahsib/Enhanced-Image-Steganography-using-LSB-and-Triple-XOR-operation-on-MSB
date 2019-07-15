@@ -28,14 +28,7 @@ out = ""
 for x in stego_flatten:
     x = np.binary_repr(x, width=8)
 
-    # step 3: perform XOR on 7th and 6th bits
-    xor_a = int(x[1]) ^ int(x[2])
-    
-    # step 4: perform XOR operation on 8th bit with xor_a
-    xor_b = int(x[0]) ^ xor_a
-    
-    # step 5: perform XOR operations on message bits with 3 MSB
-    xor_c = int(x[-1]) ^ xor_b
+    xor_c = int(x[-1]) 
     out += str(xor_c)
     if out[-16:] == '1111111111111110':
         break
