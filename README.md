@@ -32,7 +32,7 @@ Improved LSB Image Steaganography to hide text in image.
 ```python 2lsb_ext.py -s [stego_image]```
 
 ### PSNR value
-```python psnr.py -c [cover_image] -s [stego_image]
+```python psnr.py -c [cover_image] -s [stego_image]```
 
 ### Histogram
 ```python hist.py [cover/stego image]```
