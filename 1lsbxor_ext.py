@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# author_rahul_chowdhury
 
 import cv2
 import argparse
@@ -8,8 +8,7 @@ import binascii
 ap = argparse.ArgumentParser()
 ap.add_argument("-s", "--stego_image", required=True,
                 help="path to stego image")
-#ap.add_argument("-r", "--recover_image", required=True,
- #               help="path to save recovered image")
+
 args = vars(ap.parse_args())
 
 def bin2str(binary):
@@ -41,9 +40,4 @@ for x in stego_flatten:
         break
 msg = bin2str(out[:-16])
 print(msg.decode())
-#print(msg)
-    #out.append(int(xor_c))
-    
-#recover_img = np.reshape(np.array(out), (256,256))
-#recover_img[recover_img==1] = 255
-#cv2.imwrite(args["recover_image"], recover_img)
+

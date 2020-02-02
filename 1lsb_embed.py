@@ -19,19 +19,17 @@ c_img = c_img.flatten()
 
 print("Cover Image Size after flatten",c_img.size)
 
-def str2bin(text):
+def str2bin(message):
     binary = bin(int(binascii.hexlify(bytes(message, 'UTF-8')), 16))
     return binary[2:]
 
 with open(args["message_text"],"r") as f:
     msg = f.read().strip()
-    
 
 #msg = args["message_text"]
 binary = str2bin(msg) + '1111111111111110'
-bina = len(str2bin(msg))
+
 bin_len = len(binary)
-print("bin",bina)
 print("bin_len",bin_len)
 
 extra_len= img_size - bin_len
@@ -56,15 +54,8 @@ out = []
 for a, b in zip(c_img, msg_int):
     a = np.binary_repr(a, width=8)
     if bin_len!=0:   
-    # step 3: perform XOR operations on the 7th and on the 6th bit    
-        xor_a = int(a[1]) ^ int(a[2])
-        
-    # step 4: perform XOR operations on 8th bit with xor_a
-        xor_b = int(a[0]) ^ xor_a
-        
-    # step 5: perform XOR operations on message bits with 3 MSB
-        xor_c = int(b) ^ xor_b 
-    
+
+        xor_c = int(b) 
     
     # step 6: save xor_c, convert back to uint8
         save = a[:-1] + str(xor_c)
@@ -78,7 +69,7 @@ for a, b in zip(c_img, msg_int):
 stego_img = np.array(out)
 stego_img = np.reshape(stego_img, (256, 256))
 print("Steganography Succeded!")
-cv2.imwrite("stego_image.png", stego_img)
+cv2.imwrite("1lsb", stego_img)
 
 
 
